@@ -1,5 +1,5 @@
 import React from 'react';
-import './GridSquare.css';
+import './styles.css';
 
 export default function GridSquare(props){
     const classes = `grid-square color-${props.color}`

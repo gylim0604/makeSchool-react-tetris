@@ -1,5 +1,5 @@
 import GridSquare from '../GridSquare/GridSquare';
-import './GridBoard.css';
+import './styles.css';
 
 
 export default function GridBoard(props){
