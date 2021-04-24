@@ -7,7 +7,7 @@ import {
   RESUME,
   RESTART,
   GAME_OVER,
-} from '.../actions';
+} from '../actions';
 
 const gameReducer = (state = {}, action) => {
   switch (action.type) {
