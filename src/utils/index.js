@@ -14,6 +14,7 @@ export const gridDefault = () => {
       array[row].push(0);
     }
   }
+  return array;
 };
 // Represents the shapes and their respective rotations
 export const shapes = [
