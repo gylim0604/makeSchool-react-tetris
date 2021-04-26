@@ -56,10 +56,10 @@ const gameReducer = (state = defaultState(), action) => {
       return newState;
 
     case RESUME:
-      return state;
+      return {...state, isRunning: true}
 
     case PAUSE:
-      return state;
+      return {...state, isRunning: false}
 
     case GAME_OVER:
       return state;
