@@ -8,7 +8,7 @@ import {
   RESTART,
   GAME_OVER,
 } from '../actions';
-import { defaultState,nextRotation,canMoveTo,addBlockToGrid, checkRows,randomShape, shapes } from '../utils';
+import { defaultState,nextRotation,canMoveTo,addBlockToGrid, checkRows,randomShape } from '../utils';
 
 
 const gameReducer = (state = defaultState(), action) => {

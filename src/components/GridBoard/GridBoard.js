@@ -33,7 +33,7 @@ export default function GridBoard(props){
         }
         lastUpdateTimeRef.current = time
   } 
-
+    // eslint-disable-next-line
     useEffect(()=>{
         requestRef.current = requestAnimationFrame(update)
         return() => cancelAnimationFrame(requestRef.current)
