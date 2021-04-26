@@ -1,3 +1,5 @@
+
+
 export const random = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -210,4 +212,61 @@ export const defaultState = () =>{
         // Boolean to control whether the game is over
         gameOver: false,
     }
+}
+
+export const nextRotation = (shape, rotation) =>{
+  return (rotation +1)% shapes[shape].length
+}
+
+export const canMoveTo = (shape, grid,x,y,rotation) =>{
+  const currentShape = shapes[shape][rotation]
+  for(let row = 0; row < currentShape.length; row++){
+    for(let col = 0; col < currentShape[row].length; col++){
+      if (currentShape[row][col] !== 0){
+        const proposedX = col + x;
+        const proposedY = row +y;
+        if (proposedY < 0){
+          continue
+        }
+        const possibleRow = grid[proposedY]
+
+        if(possibleRow){
+          if(possibleRow[proposedX] === undefined || possibleRow[proposedX] !== 0){
+            return false
+          }
+        }
+        else{
+          return false
+        }
+      }
+    }
+  }
+  return true
+}
+
+export const addBlockToGrid = (shape,grid,x,y,rotation) =>{
+  const block = shapes[shape][rotation];
+  const newGrid = [...grid];
+
+  for(let row = 0; row < block.length; row++){
+    for (let col = 0; col < block[row].length;col++){
+      if(block[row][col]){
+        newGrid[row+y][col + x] =shape;
+      }
+    }
+  }
+  return newGrid;
+}
+
+export const checkRows = (grid) =>{
+  const points = [0,40,100,300,1200]
+  let completedRows = 0
+  for(let row = 0; row< grid.length; row++){
+    if(grid[row].indexOf(0) === -1){
+      completedRows += 1
+      grid.splice(row,1)
+      grid.unshift(Array(10).fill(0))
+    }
+  }
+  return points[completedRows]
 }
